@@ -65,51 +65,6 @@ function getUserLocation() {
     }
 }
 
-// Function to fetch nearby city suggestions based on user's location
-function fetchCitySuggestionsByLocation(lat, lon) {
-    const apiKey = ""; // Replace with your OpenWeatherMap API key
-    const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${apiKey}`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                const searchBox = document.getElementById("search-box");
-                searchBox.placeholder = `Try: ${data[0].name}, ${data[0].state}, ${data[0].country}`;
-            }
-        })
-        .catch(error => console.error("Error fetching nearby city suggestions:", error));
-}
-
-// Function to fetch city suggestions based on user input
-function fetchCitySuggestions(query) {
-    const apiKey = ""; // Replace with your OpenWeatherMap API key
-    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const suggestionsBox = document.getElementById("suggestions-box");
-            suggestionsBox.innerHTML = "";
-            if (data.length > 0) {
-                suggestionsBox.style.display = "block";
-                data.forEach(city => {
-                    const listItem = document.createElement("li");
-                    listItem.innerText = `${city.name}, ${city.state || ""}, ${city.country}`;
-                    listItem.addEventListener("click", () => {
-                        document.getElementById("search-box").value = city.name;
-                        suggestionsBox.style.display = "none";
-                        getWeatherData(city.lat, city.lon);
-                    });
-                    suggestionsBox.appendChild(listItem);
-                });
-            } else {
-                suggestionsBox.style.display = "none";
-            }
-        })
-        .catch(error => console.error("Error fetching city suggestions:", error));
-}
-
 // Function to handle search
 function handleSearch() {
     const city = document.getElementById("search-box").value.trim();
@@ -120,7 +75,7 @@ function handleSearch() {
 
 // Function to fetch weather by city name
 function searchWeather(city) {
-    const apiKey = ""; // Replace with your OpenWeatherMap API key
+    const apiKey = "8ffcc958d9b4f5beb8726ef5bb7f69e2"; // Replace with your OpenWeatherMap API key
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
     fetch(url)
@@ -137,7 +92,7 @@ function searchWeather(city) {
 
 // Function to fetch weather and AQI data by coordinates
 function getWeatherData(lat, lon) {
-    const apiKey = ""; // Replace with your OpenWeatherMap API key
+    const apiKey = "8ffcc958d9b4f5beb8726ef5bb7f69e2"; // Replace with your OpenWeatherMap API key
 
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
     const aqiUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
