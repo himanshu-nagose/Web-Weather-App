@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+    <!-- Main Flexbox Container -->
+    <div class="main-container">
+
+        <!-- Left Flexbox (Title + Weather Details) -->
+        <div class="left-box">
+            <!-- Upper Left: App Title -->
+            <div class="app-title">
+                <h1>Live Weather App</h1>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-container">
+                <input type="text" id="search-box" placeholder="Enter city name..." autocomplete="off" />
+                <button id="search-btn">Search</button>
+                <ul id="suggestions-box"></ul> <!-- Suggestion Dropdown -->
+            </div>
+
+            <!-- Bottom Left: Weather Details -->
+            <div id="weather-info">
+                <div class="weather-details">
+                    <h2>Location: <span id="location">--</span></h2>
+                    <p>🌡 Temperature: <span id="temperature">--</span>°C</p>
+                    <p>💧 Humidity: <span id="humidity">--</span>%</p>
+                    <p>🌥 Condition: <span id="condition">--</span></p>
+                    <p>🌍 AQI: <span id="aqi">--</span></p>
+                </div>
+
+                <!-- Date & Time Section -->
+                <div class="datetime-container">
+                    <p id="clock">⏰ --:--:--</p>
+                    <p id="date">📅 --/--/----</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Flexbox (Full Map) -->
+        <div class="right-box">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+
+</html>
