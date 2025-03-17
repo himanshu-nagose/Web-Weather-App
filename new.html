@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="new.css">
+    <script defer src="new.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-box">
+            <div class="app-title">
+                <h1>Live Weather App</h1>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-box" placeholder="Enter location..." autocomplete="off" />
+                <button id="search-btn">Search</button>
+            </div>
+
+            <div id="weather-info">
+                <div class="weather-details">
+                    <h2>Location: <span id="location">--</span></h2>
+                    <p>🌡 Temperature: <span id="temperature">--</span>°C</p>
+                    <p>💧 Humidity: <span id="humidity">--</span>%</p>
+                    <p>🌥 Condition: <span id="condition">--</span></p>
+                    <p>🌍 AQI: <span id="aqi">--</span></p>
+                </div>
+
+                <div class="datetime-container">
+                    <p id="clock">⏰ --:--:--</p>
+                    <p id="date">📅 --/--/----</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-box">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+</html>

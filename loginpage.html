@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Login Form</title>
+    <link rel="stylesheet" href="loginpage.css">
+</head>
+
+<body>
+    <!-- Toggle switch positioned in the upper-left corner -->
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="main-container">
+        <div class="left">Welcome</div>
+        <div class="right">
+            <div id="username">
+                <textarea name="username" id="username" placeholder="Username/Email"></textarea>
+            </div>
+
+            <div id="password">
+                <textarea name="password" id="password" placeholder="Password"></textarea>
+            </div>
+
+            <div id="login">
+                <button>Login</button>
+            </div>
+
+            <div class="right-lower">
+                <button id="signup-btn">Signup</button>
+
+                <button id="forget-password-btn">Forgot Password?</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="loginpage.js"></script>
+</body>
+
+</html>

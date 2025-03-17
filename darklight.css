@@ -1,0 +1,85 @@
+/* Default Light Theme */
+:root {
+    --bg-color: #ffffff;
+    --toggle-bg: #ccc;
+    --toggle-slider: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+.dark-theme {
+    --bg-color: #222;
+    --toggle-bg: #666;
+    --toggle-slider: #000;
+    --shadow-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Apply Theme */
+body {
+    background-color: var(--bg-color);
+    transition: background 0.6s ease-in-out;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Move Toggle to Top Left Corner */
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+/* Hide Default Checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider (Switch Background) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--toggle-bg);
+    transition: 0.4s ease-in-out;
+    border-radius: 30px;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Toggle Circle */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--toggle-slider);
+    transition: 0.4s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* Dark Mode Animation */
+input:checked + .slider {
+    background-color: var(--toggle-bg);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* Bounce Effect for Circle */
+input:checked + .slider::before {
+    transform: translateX(28px) scale(1.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
